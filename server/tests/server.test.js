@@ -158,6 +158,7 @@ describe('PATCH /todos/:id', () => {
              //console.log(res.body);
              expect(res.body.todo.text).toBe(text);
              expect(res.body.todo.completed).toBe(true);
+             expect(res.body.todo.completedAt).toBeA('number');
                 })
             .end(done);
     });
@@ -176,7 +177,7 @@ describe('PATCH /todos/:id', () => {
             .expect( (res) => {
              //console.log(res.body);
              expect(res.body.todo.text).toBe(text);
-             expect(res.body.todo.completed).toBe(true);
+             expect(res.body.todo.completed).toBe(false);
              expect(res.body.todo.completedAt).toNotExist();
                 })
             .end(done);
